@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+ <html > 
+    <head>
+        
+        <title>Hello</title>
+       
+       
+    </head>
+
+    <script type="text/javascript" src="./topsObs.js"></script>
+    <script>
+    console.log("loading....");
+    window.onload =  function onload(){
+   console.log("loading the docs......................");
+var controlCheckbox = document.getElementById( "mainCheckbox" ),
+  addBtn = document.getElementById( "addNewObserver" ),
+  container = document.getElementById( "observersContainer" );
+ 
+ 
+// Concrete Subject
+ 
+// Extend the controlling checkbox with the Subject class
+extend( controlCheckbox, new Subject() );
+ 
+// Clicking the checkbox will trigger notifications to its observers
+controlCheckbox.onclick = function(){
+  controlCheckbox.notify( controlCheckbox.checked );
+};
+ 
+addBtn.onclick = addNewObserver(controlCheckbox,container);
+ }
+    </script>
+
+    <body >
+        
+        <button id="addNewObserver">Add New Observer checkbox</button>
+        <input id="mainCheckbox" type="checkbox"/>
+        <div id="observersContainer"></div>
+    </body>
+</html>
